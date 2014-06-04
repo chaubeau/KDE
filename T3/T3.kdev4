@@ -1,0 +1,4 @@
+[Project]
+Name=T3
+Manager=KDevCMakeManager
+VersionControl=kdevgit
