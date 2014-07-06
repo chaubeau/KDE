@@ -1,0 +1,15 @@
+
+Test MySQL Maxconnect
+
+1.Please modify the script inside the MySQL connection information.
+
+2.python max_connection.py  [并发数] [运行次数]
+
+
+RESULT：
+    MySQL 5.1   max_connection ：100000
+    MySQL 5.0   max_connection : 16384
+
+SOURCE CODE:
+    5.1  mysqld.cc:   &max_connections, 0, GET_ULONG, REQUIRED_ARG, 151, 1, 100000, 0, 1, 0},
+    5.0  mysqld.cc:   (gptr*) &max_connections, 0, GET_ULONG, REQUIRED_ARG, 100, 1, 16384, 0, 1,0, GET_ULONG, REQUIRED_ARG, 20, 0, 16384, 0, 1, 0},

@@ -1,0 +1,23 @@
+Question:
+    InnoDB: Warning: cannot find a free slot for an undo log. Do you have too many active transactions running concurrently?
+
+Test:
+    1.login your MySQL，：
+       mysql> source create.sql;
+    2.In innodb_active_number.sh,you need to set the MYSQL variable according to the environment
+    3.start test
+        ./innodb_active_number.sh 1000
+        ./innodb_active_number.sh 2000
+        ./innodb_active_number.sh 1024
+        ./innodb_active_number.sh 1025
+
+Result:
+    http://bugs.mysql.com/bug.php?id=26590
+    http://bugs.mysql.com/bug.php?id=18828
+
+Reference:
+    https://blogs.oracle.com/mysqlinnodb/
+    source code: ./storage/innodb_plugin/trx/trx0rec.c
+
+Version: 5.0 5.1
+
